@@ -17,4 +17,12 @@ Route::get('/', function () {
     return view('dashboard');
 });
 
+
+// Auth::routes();
+# Route Kelas
+Route::get('/kelas', 'App\Http\Controllers\KelasController@index')->name('kelas.index');
+Route::get('/kelas/create', 'App\Http\Controllers\KelasController@create')->name('kelas.create');
+Route::post('/kelas', 'App\Http\Controllers\KelasController@store')->name('kelas.store');
+
+
 // Route::get('dashboard',HomeController::class,'dashboard');
