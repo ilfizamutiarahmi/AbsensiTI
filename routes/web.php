@@ -17,6 +17,15 @@ Route::get('/', function () {
     return view('dashboard');
 });
 
+
+
+// Auth::routes();
+# Route Kelas
+Route::get('/kelas', 'App\Http\Controllers\KelasController@index')->name('kelas.index');
+Route::get('/kelas/create', 'App\Http\Controllers\KelasController@create')->name('kelas.create');
+Route::post('/kelas', 'App\Http\Controllers\KelasController@store')->name('kelas.store');
+
+
 //dosen
 Route::get('/dosen','App\Http\Controllers\DosenController@index')->name('dosen.index');
 Route::get('/dosen/create','App\Http\Controllers\DosenController@create')->name('dosen.create');
@@ -33,5 +42,6 @@ Route::post('/mahasiswa/$id', 'App\Http\Controllers\MahasiswaController@update')
 Route::get('/tahun_ajar','App\Http\Controllers\TahunAjarController@index')->name('tahun_ajar.index');
 Route::get('/tahun_ajar/create','App\Http\Controllers\TahunAjarController@create')->name('tahun_ajar.create');
 Route::post('/tahun_ajar', 'App\Http\Controllers\TahunAjarController@store')->name('tahun_ajar.store');
+
 
 // Route::get('dashboard',HomeController::class,'dashboard');
