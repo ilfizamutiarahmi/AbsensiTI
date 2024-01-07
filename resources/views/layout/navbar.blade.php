@@ -43,9 +43,9 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./index3.html" class="nav-link">
+                <a href="{{ route('tahun_ajar.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Tahun Ajaran</p>
+                  <p>Tahun Ajar</p>
                 </a>
               </li>
               <li class="nav-item">
