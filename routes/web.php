@@ -18,11 +18,25 @@ Route::get('/', function () {
 });
 
 
+
 // Auth::routes();
 # Route Kelas
 Route::get('/kelas', 'App\Http\Controllers\KelasController@index')->name('kelas.index');
 Route::get('/kelas/create', 'App\Http\Controllers\KelasController@create')->name('kelas.create');
 Route::post('/kelas', 'App\Http\Controllers\KelasController@store')->name('kelas.store');
+
+
+//dosen
+Route::get('/dosen','App\Http\Controllers\DosenController@index')->name('dosen.index');
+Route::get('/dosen/create','App\Http\Controllers\DosenController@create')->name('dosen.create');
+Route::post('/dosen', 'App\Http\Controllers\DosenController@store')->name('dosen.store');
+
+//mahasiswa
+Route::get('/mahasiswa','App\Http\Controllers\MahasiswaController@index')->name('mahasiswa.index');
+Route::get('/mahasiswa/create','App\Http\Controllers\MahasiswaController@create')->name('mahasiswa.create');
+Route::post('/mahasiswa', 'App\Http\Controllers\MahasiswaController@store')->name('mahasiswa.store');
+Route::get('/mahasiswa/edit/{id}','App\Http\Controllers\MahasiswaController@edit')->name('mahasiswa.edit');
+Route::post('/mahasiswa/$id', 'App\Http\Controllers\MahasiswaController@update')->name('mahasiswa.update');
 
 
 // Route::get('dashboard',HomeController::class,'dashboard');
