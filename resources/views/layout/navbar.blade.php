@@ -32,6 +32,7 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="{{ route('dosen.index')}}" class="nav-link active">
+                <a href="{{ route('dosen.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Dosen</p>
                 </a>
@@ -50,18 +51,19 @@
               </li>
               <li class="nav-item">
                 <a href="{{ route('kelas.create')}}" class="nav-link active">
+                <a href="{{ route('kelas.create')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Kelas</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./index3.html" class="nav-link">
+                <a href="{{ route('matakuliah.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Matakuliah</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./index3.html" class="nav-link">
+                <a href="{{ route('prodi.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Prodi</p>
                 </a>

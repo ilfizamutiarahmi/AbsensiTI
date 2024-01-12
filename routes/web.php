@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\MatakuliahModel;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,5 +39,19 @@ Route::post('/mahasiswa', 'App\Http\Controllers\MahasiswaController@store')->nam
 Route::get('/mahasiswa/edit/{id}','App\Http\Controllers\MahasiswaController@edit')->name('mahasiswa.edit');
 Route::post('/mahasiswa/$id', 'App\Http\Controllers\MahasiswaController@update')->name('mahasiswa.update');
 
+
+//prodi
+Route::get('/prodi','App\Http\Controllers\ProdiController@index')->name('prodi.index');
+Route::get('/prodi/create','App\Http\Controllers\ProdiController@create')->name('prodi.create');
+Route::post('/prodi', 'App\Http\Controllers\ProdiController@store')->name('prodi.store');
+Route::get('/prodi/edit/{id}','App\Http\Controllers\ProdiController@edit')->name('prodi.edit');
+Route::post('/prodi/$id', 'App\Http\Controllers\ProdiController@update')->name('prodi.update');
+
+//matakuliah
+Route::get('/matakuliah','App\Http\Controllers\MatakuliahController@index')->name('matakuliah.index');
+Route::get('/matakuliah/create','App\Http\Controllers\MatakuliahController@create')->name('matakuliah.create');
+Route::post('/matakuliah', 'App\Http\Controllers\MatakuliahController@store')->name('matakuliah.store');
+Route::get('/matakuliah/edit/{id}','App\Http\Controllers\MatakuliahController@edit')->name('matakuliah.edit');
+Route::post('/matakuliah/$id', 'App\Http\Controllers\MatakuliahController@update')->name('matakuliah.update');
 
 // Route::get('dashboard',HomeController::class,'dashboard');
