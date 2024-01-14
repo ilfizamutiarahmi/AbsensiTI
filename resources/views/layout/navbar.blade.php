@@ -3,9 +3,6 @@
     <a  class="brand-link">
       <img src="{{ asset('adminlte/dist/img/tinfo3.jpg')}}" alt="" class="brand-image" style="opacity: .8">
       <span class="brand-text">Presensi TI</span>
-    <a href="index3.html" class="brand-link">
-      <img src="{{ asset('adminlte/dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">Absensi TI</span>
     </a>
 
     <!-- Sidebar -->
@@ -34,8 +31,6 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ route('dosen.index')}}" class="nav-link active">
-                <a href="{{ route('dosen.index')}}" class="nav-link">
                 <a href="./index.html" class="nav-link">
                 <a href="{{ route('dosen.index')}}" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
@@ -43,7 +38,6 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./index2.html" class="nav-link">
                 <a href="{{ route('mahasiswa.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Mahasiswa</p>
@@ -52,33 +46,24 @@
               <li class="nav-item">
                 <a href="{{ route('tahun_ajar.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Tahun Ajar</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{ route('kelas.create')}}" class="nav-link active">
-                <a href="{{ route('kelas.create')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                <a href="./index3.html" class="nav-link">
                   <p>Tahun Ajaran</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('kelas.index')}}" class="nav-link">
+              <a href="{{ route('kelas.create')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
                   <p>Kelas</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{ route('matakuliah.index')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                <a href="./index3.html" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
                   <p>Matakuliah</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{ route('prodi.index')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                <a href="./index3.html" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
                   <p>Prodi</p>
                 </a>
               </li>
