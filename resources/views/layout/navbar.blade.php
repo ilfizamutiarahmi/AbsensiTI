@@ -1,8 +1,14 @@
 <aside class="main-sidebar sidebar" background-color: white>
     <!-- Brand Logo -->
+<<<<<<< HEAD
     <a  class="brand-link">
       <img src="{{ asset('adminlte/dist/img/tinfo3.jpg')}}" alt="" class="brand-image" style="opacity: .8">
       <span class="brand-text">Presensi TI</span>
+=======
+    <a href="index3.html" class="brand-link">
+      <img src="{{ asset('adminlte/dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <span class="brand-text font-weight-light">Absensi TI</span>
+>>>>>>> 9dd91dfe7525544a48159d61e2a6e62649acdb33
     </a>
 
     <!-- Sidebar -->
@@ -31,12 +37,23 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
+
                 <a href="./index.html" class="nav-link">
+<<<<<<< HEAD
+=======
+                <a href="{{ route('dosen.index')}}" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+>>>>>>> 9dd91dfe7525544a48159d61e2a6e62649acdb33
                   <p>Dosen</p>
                 </a>
               </li>
               <li class="nav-item">
+<<<<<<< HEAD
                 <a href="./index2.html" class="nav-link">
+=======
+                <a href="{{ route('mahasiswa.index')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+>>>>>>> 9dd91dfe7525544a48159d61e2a6e62649acdb33
                   <p>Mahasiswa</p>
                 </a>
               </li>
