@@ -14,9 +14,15 @@ return new class extends Migration
         Schema::create('kelas', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nama_kelas',25);
+            $table->unsignedBigInteger('id_prodi');
             $table->string('nama_pa',25);
             $table->timestamps();
         });
+
+        Schema::table('prodi', function (Blueprint $table) {
+            $table->foreign('id_prodi')->references('id')->on('prodi')->onUpdate('cascade')->onDelete('cascade');
+        });
+
     }
 
     /**
