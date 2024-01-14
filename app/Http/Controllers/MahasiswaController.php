@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Mahasiswa;
-use App\Models\USer;
+use App\Models\User;
 
 class MahasiswaController extends Controller
 {
