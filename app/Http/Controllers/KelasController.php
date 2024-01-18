@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\KelasModel;
+use App\Models\Kelas;
 use Validator;
 
 class KelasController extends Controller
@@ -24,7 +24,7 @@ class KelasController extends Controller
     public function index()
     {
         //menampilkan semua data dari model kelas
-        $kelas = KelasModel::all();
+        $kelas = Kelas::all();
         return view('kelas.index')->with('kelas', $kelas);
     }
 
@@ -35,7 +35,7 @@ class KelasController extends Controller
      */
     public function create()
     {
-        $kelas = KelasModel::all();
+        $kelas = Kelas::all();
         return view('kelas.create');
     }
 

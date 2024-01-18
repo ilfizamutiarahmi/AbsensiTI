@@ -15,9 +15,6 @@
                 @csrf
                 <div class="card-body">
                 <div class="form-group">
-                    <label for="name">Username</label>
-                    <input type="text" class="form-control" name="name" id="name" placeholder="">
-                  </div>
                   <div class="form-group">
                     <label for="nim">NIM</label>
                     <input type="text" class="form-control" name="nim" id="nim" placeholder="">
@@ -27,8 +24,13 @@
                     <input type="text" class="form-control" name="nama_mahasiswa" id="nama_mahasiswa" placeholder="">
                   </div>
                   <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" class="form-control" name="email" id="email" placeholder="">
+                    <label for="nama_mahasiswa">Kelas</label>
+                    <select name="id_kelas" class="form-control">
+                        <option value="">--- pilih ---</option>
+                        @foreach($kelas as $kelas)
+                            <option value="{{$kelas->id}}">{{$kelas->nama_kelas}}</option>
+                        @endforeach
+                    </select>                  
                   </div>
                   <div class="form-group">
                     <label for="jenis_kl">Jenis Kelamin</label>

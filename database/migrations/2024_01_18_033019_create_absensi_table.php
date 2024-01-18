@@ -12,9 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('absensi', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('id_mhs')->unsigned();
-            $table->integer('id_jadwal')->unsigned();
+            $table->id();
+            $table->unsignedBigInteger('id_mhs');
+            $table->unsignedBigInteger('id_jadwal');
             $table->foreign('id_mhs')->references('id')->on('mahasiswa');
             $table->foreign('id_jadwal')->references('id')->on('jadwal');
             $table->string('status');
