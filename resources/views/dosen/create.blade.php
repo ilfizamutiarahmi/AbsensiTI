@@ -15,8 +15,8 @@
                 @csrf
                 <div class="card-body">
                 <div class="form-group">
-                    <label for="name">Username</label>
-                    <input type="text" class="form-control" name="name" id="name" placeholder="">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" name="username" id="username" placeholder="">
                   </div>
                   <div class="form-group">
                     <label for="nip">NIP</label>
