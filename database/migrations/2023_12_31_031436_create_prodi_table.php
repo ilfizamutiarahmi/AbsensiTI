@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nama_prodi',50);
             $table->string('kaprodi',50);
+            $table->timestamps();
         });
     }
 

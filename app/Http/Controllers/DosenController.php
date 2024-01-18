@@ -16,7 +16,7 @@ class DosenController extends Controller
 
     public function create(){
         
-        $dosen = Dosen::select('name','nip','nama_dosen','jenis_kelamin','email','alamat','no_hp')
+        $dosen = Dosen::select('username','nip','nama_dosen','jenis_kelamin','email','alamat','no_hp')
                                 ->join('users','dosen.id_user','users.id')
                                 ->get();
         return view('dosen.create');
@@ -25,7 +25,7 @@ class DosenController extends Controller
     public function store(Request $request)
     {
             $user = User::create([
-                'name' => $request->name,
+                'username' => $request->username,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
                 
