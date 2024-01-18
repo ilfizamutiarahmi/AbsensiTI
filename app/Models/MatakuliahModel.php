@@ -10,6 +10,6 @@ class MatakuliahModel extends Model
     use HasFactory;
     protected $primaryKey = 'id';
     protected $table = 'matakuliah';
-    public $fillable = ['nama_matkul','jml_sks'];
+    public $fillable = ['nama_matkul','jml_sks','id_dosen'];
 
 }
