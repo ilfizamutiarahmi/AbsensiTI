@@ -16,7 +16,7 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                    <a href="{{ route('mahasiswa.create')}}" class="btn btn-primary mb-3"><i class="fas fa-plus"> Tambah </i></a>
+                    <a href="{{ route('tahun_ajar.create')}}" class="btn btn-primary mb-3"><i class="fas fa-plus"> Tambah </i></a>
                       <table id="example2" class="table table-bordered table-hover">
                         <thead>
                         <tr>
