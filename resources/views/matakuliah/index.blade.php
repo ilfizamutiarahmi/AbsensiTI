@@ -20,6 +20,7 @@
                           <th>No</th>
                           <th>Nama Matakuliah</th>
                           <th>Jumlah SKS</th>
+                          <th>Dosen</th>
                           <th>Menu</th>
                         </tr>
                         </thead>
@@ -30,7 +31,8 @@
                             <td>{{$no++}}</td>
                             <td>{{$mtk->nama_matkul}}</td>
                             <td>{{$mtk->jml_sks}}</td>
-                            <td style="text-align: center;"><a href="{{ route('matakuliah.edit', $mtk->id)}}" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></a>
+                            <td>{{$mtk->nama_dosen}}</td>
+                            <td style="text-align: center;"><a href="#" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></a>
                             <a href="" class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i></a></td>
                         </tr>
                         @endforeach

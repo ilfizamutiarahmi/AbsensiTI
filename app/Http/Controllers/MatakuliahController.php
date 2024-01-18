@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\MatakuliahModel;
+use App\Models\Dosen;
 use Validator;
 
 class MatakuliahController extends Controller
@@ -24,7 +25,9 @@ class MatakuliahController extends Controller
     public function index()
     {
         //menampilkan semua data dari model prodi
-        $matakuliah = MatakuliahModel::all();
+        $matakuliah = MatakuliahModel::select('nama_matkul','jml_sks','nama_dosen')
+                                ->join('dosen','matakuliah.id_dosen','dosen.id')
+                                ->get();
         return view('matakuliah.index')->with('matakuliah', $matakuliah);
     }
 
@@ -36,7 +39,8 @@ class MatakuliahController extends Controller
     public function create()
     {
         $matakuliah = MatakuliahModel::all();
-        return view('matakuliah.create');
+        $dosen = Dosen::all();
+        return view('matakuliah.create')->with('dosen',$dosen);
     }
 
     /**

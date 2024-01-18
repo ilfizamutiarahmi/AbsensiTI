@@ -21,6 +21,16 @@
                   <div class="form-group">
                     <label for="jml_sks">Jumlah SKS</label>
                     <input type="integer" class="form-control" name="jml_sks" id="jml_sks" placeholder="">
+                  </div>
+                  <div class="form-group">
+                    <label for="id_dosen">Kelas</label>
+                    <select name="id_dosen" class="form-control">
+                        <option value="">--- pilih ---</option>
+                        @foreach($dosen as $dosen)
+                            <option value="{{$dosen->id}}">{{$dosen->nama_dosen}}</option>
+                        @endforeach
+                    </select>                  
+                  </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
                   <button type="submit" class="btn btn-primary">Submit</button>
