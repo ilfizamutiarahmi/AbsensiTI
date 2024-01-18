@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Mahasiswa;
+use App\Models\Kelas;
+
 use App\Models\User;
 
 class MahasiswaController extends Controller
@@ -16,23 +18,15 @@ class MahasiswaController extends Controller
 
     public function create(){
         
-        $mahasiswa = Mahasiswa::select('name','nim','nama_mhs','jenis_kelamin','email','alamat','no_telp')
-                                ->join('users','mahasiswa.id_user','users.id')
-                                ->get();
-        return view('mahasiswa.create');
+        $mahasiswa = Mahasiswa::All();
+        $kelas = Kelas::All();
+        return view('mahasiswa.create')->with('kelas',$kelas);
     }
 
     public function store(Request $request)
     {
-            $user = User::create([
-                'name' => $request->name,
-                'email' => $request->email,
-                'password' => Hash::make($request->password),
-                
-            ]);
-            
             $mhs = Mahasiswa::create([
-                'id_user' =>  $user->id,
+                'id_kelas' =>  $request->id_kelas,
                 'nim' => $request->nim,
                 'nama_mhs' => $request->nama_mahasiswa,
                 'jenis_kelamin' => $request->jenis_kelamin,
@@ -41,7 +35,7 @@ class MahasiswaController extends Controller
 
                 
             ]);
-            return redirect('/dosen')-> with('status', 'Data Dosen berhasil ditambahkan!');  
+            return redirect('/mahasiswa')-> with('status', 'Data Mahasiswa berhasil ditambahkan!');  
     }
 
     public function edit($id){
