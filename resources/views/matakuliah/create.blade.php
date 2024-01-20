@@ -23,7 +23,7 @@
                     <input type="integer" class="form-control" name="jml_sks" id="jml_sks" placeholder="">
                   </div>
                   <div class="form-group">
-                    <label for="id_dosen">Kelas</label>
+                    <label for="id_dosen">Dosen</label>
                     <select name="id_dosen" class="form-control">
                         <option value="">--- pilih ---</option>
                         @foreach($dosen as $dosen)

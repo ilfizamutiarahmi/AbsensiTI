@@ -31,7 +31,7 @@
                             <td>{{$prd->nama_prodi}}</td>
                             <td>{{$prd->kaprodi}}</td>
                             <td style="text-align: center;"><a href="{{ route('prodi.edit', $prd->id)}}" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></a>
-                            <a href="" class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i></a></td>
+                            <a href="/prodi/destroy/{{$prd->id}}" class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i></a></td>
                         </tr>
                         @endforeach
                         </tbody>

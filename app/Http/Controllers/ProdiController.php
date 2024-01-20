@@ -114,8 +114,8 @@ class ProdiController extends Controller
      */
     public function destroy($id)
     {
-        $prodi = prodi::findOrFail($id);
-        $prodi->delete();
+        $prodi = ProdiModel::where('id',$id)
+                ->delete();
         return redirect()->route('prodi.index')
             ->with('success', 'Data berhasil dihapus!');
     }
