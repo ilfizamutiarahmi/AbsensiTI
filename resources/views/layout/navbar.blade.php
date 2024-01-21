@@ -49,7 +49,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('kelas.create')}}" class="nav-link active">
+                <a href="{{ route('kelas.create')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Kelas</p>
                 </a>
@@ -67,13 +67,13 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link active">
+                <a href="{{route('jadwal.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Jadwal</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link active">
+                <a href="{{route('absensi.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Absensi</p>
                 </a>
