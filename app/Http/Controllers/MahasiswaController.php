@@ -64,4 +64,12 @@ class MahasiswaController extends Controller
 
     return redirect('/mahasiswa')-> with('status', 'Data Mahasiswa berhasil diupdate!');
     }
+
+    public function destroy($id)
+    {
+        $mhs = Mahasiswa::where('id',$id)
+                ->delete();
+        return redirect()->route('mahasiswa.index')
+            ->with('success', 'Data berhasil dihapus!');
+    }
 }

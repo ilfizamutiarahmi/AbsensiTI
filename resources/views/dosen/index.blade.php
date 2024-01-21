@@ -42,7 +42,7 @@
                             <td>{{$ds->no_hp}}</td>
                             <td>{{$ds->alamat}}</td>
                             <td style="text-align: center;"><a href="" class="btn btn-sm btn-warning mr-3"><i class="fas fa-edit"></i></a> 
-                            <a href="" class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i></a></td>
+                            <a href="/dosen/destroy/{{$ds->id}}" class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i></a></td>
                         </tr>
                         @endforeach
                         </tbody>

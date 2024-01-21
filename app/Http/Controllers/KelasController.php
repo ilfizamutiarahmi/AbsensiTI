@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Kelas;
+use App\Models\ProdiModel;
 use Validator;
 
 class KelasController extends Controller
@@ -36,7 +37,8 @@ class KelasController extends Controller
     public function create()
     {
         $kelas = Kelas::all();
-        return view('kelas.create');
+        $prodi = ProdiModel::all();
+        return view('kelas.create')->with('prodi',$prodi);
     }
 
     /**
@@ -53,7 +55,7 @@ class KelasController extends Controller
             'nama_pa' => 'required',
         ]);
 
-        KelasModel::create($request->all());
+        Kelas::create($request->all());
         return redirect('/kelas');
     }
     /**
@@ -114,8 +116,8 @@ class KelasController extends Controller
      */
     public function destroy($id)
     {
-        $kelas = kelas::findOrFail($id);
-        $kelas->delete();
+        $kelas = Kelas::where('id',$id)
+                ->delete();
         return redirect()->route('kelas.index')
             ->with('success', 'Data berhasil dihapus!');
     }

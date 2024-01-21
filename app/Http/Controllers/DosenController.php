@@ -43,4 +43,12 @@ class DosenController extends Controller
             ]);
             return redirect('/dosen')-> with('status', 'Data Dosen berhasil ditambahkan!');  
     }
+
+    public function destroy($id)
+    {
+        $prodi = Dosen::where('id',$id)
+                ->delete();
+        return redirect()->route('dosen.index')
+            ->with('success', 'Data berhasil dihapus!');
+    }
 }
