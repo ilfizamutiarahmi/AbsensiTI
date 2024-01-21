@@ -66,6 +66,18 @@
                   <p>Prodi</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Jadwal</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Absensi</p>
+                </a>
+              </li>
             </ul>
           </li>
         </ul>
