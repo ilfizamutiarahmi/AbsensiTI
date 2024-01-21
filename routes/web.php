@@ -49,6 +49,14 @@ Route::get('/tahun_ajar','App\Http\Controllers\TahunAjarController@index')->name
 Route::get('/tahun_ajar/create','App\Http\Controllers\TahunAjarController@create')->name('tahun_ajar.create');
 Route::post('/tahun_ajar', 'App\Http\Controllers\TahunAjarController@store')->name('tahun_ajar.store');
 
+//Absensi
+Route::get('/absensi','App\Http\Controllers\AbsensiController@index')->name('absensi.index');
+Route::post('/absensi', 'App\Http\Controllers\AbsensiController@store')->name('absensi.store');
+
+//Jadwal
+Route::get('/jadwal','App\Http\Controllers\JadwalController@index')->name('jadwal.index');
+// Route::get('/jadwal','App\Http\Controllers\JadwalController@index')->name('jadwal.store');
+
 
 //prodi
 Route::get('/prodi','App\Http\Controllers\ProdiController@index')->name('prodi.index');

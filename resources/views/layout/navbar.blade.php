@@ -50,7 +50,7 @@
                 </a>
               </li>
               <li class="nav-item">
-              <a href="{{ route('kelas.index')}}" class="nav-link">
+                <a href="{{ route('kelas.create')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Kelas</p>
                 </a>
@@ -65,6 +65,18 @@
                 <a href="{{ route('prodi.index')}}" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                   <p>Prodi</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('jadwal.index')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Jadwal</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('absensi.index')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Absensi</p>
                 </a>
               </li>
             </ul>
