@@ -30,11 +30,15 @@
                         @foreach($kelas as $kelas)
                             <option value="{{$kelas->id}}">{{$kelas->nama_kelas}}</option>
                         @endforeach
-                    </select>                  
+                    </select>
                   </div>
                   <div class="form-group">
                     <label for="jenis_kl">Jenis Kelamin</label>
-                    <input type="text" class="form-control" name="jenis_kelamin" id="jenis_kelamin" placeholder="">
+                    <select name="jenis_kelamin" class="form-control">
+                        <option value="">--- pilih ---</option>
+                        <option value="Perempuan">Perempuan</option>
+                        <option value="Perempuan">Laki-Laki</option>
+                    </select>
                   </div>
                   <div class="form-group">
                     <label for="alamat">Alamat</label>
