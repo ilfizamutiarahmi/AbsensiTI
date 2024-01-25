@@ -31,20 +31,19 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./index.html" class="nav-link">
-                <a href="{{ route('dosen.index')}}" class="nav-link active">
+                <a href="{{ route('dosen.index')}}" class="nav-link {{ (Route::currentRouteName() == 'dosen.index') ? 'active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Dosen</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('mahasiswa.index')}}" class="nav-link">
+                <a href="{{ route('mahasiswa.index')}}" class="nav-link {{ (Route::currentRouteName() == 'mahasiswa.index') ? 'active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Mahasiswa</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('tahun_ajar.index')}}" class="nav-link">
+                <a href="{{ route('tahun_ajar.index')}}" class="nav-link {{ (Route::currentRouteName() == 'tahun_ajar.index') ? 'active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Tahun Ajaran</p>
                 </a>
@@ -68,13 +67,13 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{route('jadwal.index')}}" class="nav-link">
+                <a href="{{route('jadwal.index')}}" class="nav-link {{ (Route::currentRouteName() == 'jadwal.index') ? 'active' : ''}} ">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Jadwal</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{route('absensi.index')}}" class="nav-link">
+                <a href="{{route('absensi.index')}}" class="nav-link {{ (Route::currentRouteName() == 'absensi.index') ? 'active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Absensi</p>
                 </a>
