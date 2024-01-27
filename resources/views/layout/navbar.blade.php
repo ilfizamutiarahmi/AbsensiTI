@@ -67,7 +67,7 @@
                 </a>
               </li>
               <li class="nav-item">
-              <a href="{{route('jadwal.index')}}" class="nav-link {{ (Route::currentRouteName() == 'jadwal.index') ? 'active' : ''}}">
+              <a href="{{route('jadwal.create')}}" class="nav-link {{ (Route::currentRouteName() == 'jadwal.create') ? 'active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Jadwal</p>
                 </a>
