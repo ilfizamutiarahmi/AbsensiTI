@@ -37,7 +37,7 @@
                     <select name="jenis_kelamin" class="form-control">
                         <option value="">--- pilih ---</option>
                         <option value="Perempuan">Perempuan</option>
-                        <option value="Perempuan">Laki-Laki</option>
+                        <option value="Laki-Laki">Laki-Laki</option>
                     </select>
                   </div>
                   <div class="form-group">

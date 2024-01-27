@@ -18,7 +18,7 @@
                     <form method="POST" action="#">
                     @csrf
                         <div class="card-body">
-                        <a href="#" class="btn btn-primary mb-3"><i class="fas fa-plus"> Tambah </i></a>
+                        <a href="{{ route('jadwal.create') }}" class="btn btn-primary mb-3"><i class="fas fa-plus"> Tambah </i></a>
                         <table id="example2" class="table table-bordered table-hover">
                             <thead>
                             <tr>
