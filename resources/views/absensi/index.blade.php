@@ -15,17 +15,15 @@
                       <div class="row"></div>
                     </div>
                     <!-- /.card-header -->
-                    <form method="POST" action="{{route('absensi.store')}}">
-                    @csrf
                         <div class="card-body">
-                        <table id="example2" class="table table-bordered table-hover">
+                          <table id="example2" class="table table-bordered table-hover">
                             <thead>
                             <tr>
                                 <th>No</th>
                                 <th>No BP</th>
                                 <th>Nama Mahasiswa</th>
-                                <th>Jenis kelamin</th>
-                                <th>No HP</th>
+                                <!-- <th>Jenis kelamin</th>
+                                <th>No HP</th> -->
                                 <th>Kehadiran</th>
                                 <th>Keterangan</th>
                                 <th>Aksi</th>
@@ -35,34 +33,28 @@
                             @php
                                 $no = 1;
                             @endphp
-                            @foreach($mhs as $ab)
-                            
+                            @foreach($mhs as $key => $ab)
                             <tr>
                                 <td>{{$no++}}</td>
                                 <td>{{$ab->nim}}</td>
                                 <td>{{$ab->nama_mhs}}</td>
-                                <td>{{$ab->jenis_kelamin}}</td>
-                                <td>{{$ab->no_telp}}</td>
                                 <form method="POST" action="{{route('absensi.store')}}">
                                 @csrf
                                 <td>
                                     <select name="status" class="form-control">
-                                        <option value="Hadir">Hadir</option>
-                                        <option value="Sakit">Sakit</option>
-                                        <option value="Izin">Izin</option>
-                                        <option value="Alfa">alfa</option>
+                                      @foreach($statuses as $st)
+                                        <option value="{{ $st }}"> {{ $st }} </option>
+                                      @endforeach
                                     </select>
                                 </td>
                                 <td>
-                                    <input type="hidden" class="form-control" name="id_mhs" id="id_mhs" value="{{ $ab->id }}" placeholder="">
-                                    <input type="text" class="form-control" name="keterangan" id="keterangan" placeholder="">
+                                    <input type="hidden" class="form-control" name="id_mhs" id="id_mhs" value="{{ $ab->id }}" >
+                                    <input type="text" class="form-control" name="keterangan" id="keterangan" >
+                                    <input type="hidden" class="form-control" name="hari_ini" id="hari_ini" value="{{ $hari_ini }}">
                                 </td>
                                 <td>
-                                <div class="card-footer">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                </div>
+                                    <button type="submit" class="btn btn-primary">Simpan</button>
                                 </td>
-                                
                                 </form>
                             </tr>
                             @endforeach

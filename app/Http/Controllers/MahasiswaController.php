@@ -25,16 +25,15 @@ class MahasiswaController extends Controller
 
     public function store(Request $request)
     {
-            $mhs = Mahasiswa::create([
+            $data = [
                 'id_kelas' =>  $request->id_kelas,
                 'nim' => $request->nim,
                 'nama_mhs' => $request->nama_mahasiswa,
                 'jenis_kelamin' => $request->jenis_kelamin,
                 'alamat' => $request->alamat,
                 'no_telp' => $request->no_telp,
-
-                
-            ]);
+            ];
+            DB::table('mahasiswa')->insert($data);
             return redirect('/mahasiswa')-> with('status', 'Data Mahasiswa berhasil ditambahkan!');  
     }
 

@@ -55,7 +55,8 @@ Route::post('/absensi', 'App\Http\Controllers\AbsensiController@store')->name('a
 
 //Jadwal
 Route::get('/jadwal','App\Http\Controllers\JadwalController@index')->name('jadwal.index');
-// Route::get('/jadwal','App\Http\Controllers\JadwalController@index')->name('jadwal.store');
+Route::get('/jadwal/create','App\Http\Controllers\JadwalController@create')->name('jadwal.create');
+Route::post('/jadwal','App\Http\Controllers\JadwalController@store')->name('jadwal.store');
 
 
 //prodi
