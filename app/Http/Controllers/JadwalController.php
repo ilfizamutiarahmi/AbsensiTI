@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Jadwal;
 use App\Models\Kelas;
 use App\Models\TahunAjar;
-use App\Models\Matakuliah;
+use App\Models\MatakuliahModel;
 
 
 class JadwalController extends Controller
@@ -26,7 +26,7 @@ class JadwalController extends Controller
     {
         $jadwal = Jadwal::all();
         $kelas = Kelas::all();
-        $matakuliah = Matakuliah::all();
+        $matakuliah = MatakuliahModel::all();
         $th_ajar = TahunAjar::all();
         $hari = ['Senin','Selasa','Rabu','Kamis','Jumat','Sabtu','Minggu'];
 
