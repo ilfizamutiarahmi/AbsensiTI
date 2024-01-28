@@ -49,6 +49,6 @@ class AbsensiController extends Controller
             ];
             DB::table('absensi')->insert($data);
 
-            return redirect('/mahasiswa')-> with('status', 'Data Mahasiswa berhasil ditambahkan!');  
+            return redirect('/absensi')-> with('status', 'Data Mahasiswa berhasil ditambahkan!');  
     }
 }

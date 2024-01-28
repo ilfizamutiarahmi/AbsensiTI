@@ -49,25 +49,25 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('kelas.create')}}" class="nav-link">
+                <a href="{{ route('kelas.create')}}" class="nav-link {{ (Route::currentRouteName() == 'kelas.create') ? 'active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Kelas</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('matakuliah.index')}}" class="nav-link">
+                <a href="{{ route('matakuliah.index')}}" class="nav-link {{ (Route::currentRouteName() == 'matakuliah.index') ? 'active' : ''}}">
                 <i class="far fa-circle nav-icon"></i>
                   <p>Matakuliah</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('prodi.index')}}" class="nav-link">
+                <a href="{{ route('prodi.index')}}" class="nav-link {{ (Route::currentRouteName() == 'prodi.index') ? 'active' : ''}}">
                 <i class="far fa-circle nav-icon"></i>
                   <p>Prodi</p>
                 </a>
               </li>
               <li class="nav-item">
-              <a href="{{route('jadwal.create')}}" class="nav-link {{ (Route::currentRouteName() == 'jadwal.create') ? 'active' : ''}}">
+              <a href="{{route('jadwal.index')}}" class="nav-link {{ (Route::currentRouteName() == 'jadwal.index') ? 'active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Jadwal</p>
                 </a>
