@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('matakuliah', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_dosen');
-            $table->foreign('id_dosen')->references('id')->on('dosen')->cascadeOnDelete;
+            $table->foreign('id_dosen')->references('id')->on('dosen')->onUpdate('cascade')->onDelete('cascade');
             $table->string('nama_matkul',25);
             $table->integer('jml_sks');
             $table->timestamps();

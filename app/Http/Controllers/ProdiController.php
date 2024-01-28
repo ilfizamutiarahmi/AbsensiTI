@@ -91,16 +91,16 @@ class ProdiController extends Controller
     public function update(Request $request, $id)
     {
         // Validasi
-        $validated = $request->validate([
-            'id' => 'required',
-            'nama_prodi' => 'required',
-            'kaprodi' => 'required',
-        ]);
+        // $validated = $request->validate([
+        //     'id' => 'required',
+        //     'nama_prodi' => 'required',
+        //     'kaprodi' => 'required',
+        // ]);
 
         $prodi = ProdiModel::findOrFail($id);
         $prodi->id = $request->id;
-        $prodi->nama_prodi = $request->nama_prodi;
-        $prodi->kaprodi = $request->kaprodi;
+        $prodi->nama_prodi = $request->input('nama_prodi');
+        $prodi->kaprodi = $request->input('kaprodi');
         $prodi->save();
         return redirect()->route('prodi.index')
             ->with('success', 'Data berhasil diedit!');

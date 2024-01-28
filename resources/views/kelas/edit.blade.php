@@ -25,16 +25,25 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form method="post" action="{{ route('kelas.edit') }}">
+              <form method="post" action="{{url("/kelas/{$kelas->id}")}}">
               @csrf
                 <div class="card-body">
                   <div class="form-group">
                     <label for="nama_kelas">Nama Kelas</label>
-                    <input type="text" class="form-control" id="nama_kelas" name="nama_kelas" placeholder="Input Nama Kelas">
+                    <input type="text" class="form-control" id="nama_kelas" name="nama_kelas" value="{{$kelas->nama_kelas}}">
                   </div>
                   <div class="form-group">
                     <label for="nama_pa">Nama PA (Pembimbing Akademik) </label>
-                    <input type="text" class="form-control" id="nama_pa" name="nama_pa" placeholder="Input Nama PA">
+                    <input type="text" class="form-control" id="nama_pa" name="nama_pa" value="{{$kelas->nama_pa}}">
+                  </div>
+                  <div class="form-group">
+                    <label for="id_prodi">Program Studi</label>
+                    <select name="id_prodi" class="form-control">
+                        <option value="">--- pilih ---</option>
+                        @foreach($prodi as $prd)
+                            <option value="{{$prd->id}}">{{$prd->nama_prodi}}</option>
+                        @endforeach
+                    </select>                  
                   </div>
                 </div>
                 <!-- /.card-body -->
