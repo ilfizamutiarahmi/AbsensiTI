@@ -11,7 +11,7 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form method="POST" action="#">
+              <form method="POST" action="{{url("/mahasiswa/{$mahasiswa->id}")}}">
                 @csrf
                 <div class="card-body">
                 <div class="form-group">

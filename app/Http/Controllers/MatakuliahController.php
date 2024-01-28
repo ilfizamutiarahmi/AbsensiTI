@@ -81,7 +81,8 @@ class MatakuliahController extends Controller
     public function edit($id)
     {
         $matakuliah = MatakuliahModel::findOrFail($id);
-        return view('matakuliah.edit', compact('matakuliah'));
+        $dosen = Dosen::get();
+        return view('matakuliah.edit', compact('matakuliah','dosen'));
 
     }
 
@@ -95,16 +96,17 @@ class MatakuliahController extends Controller
     public function update(Request $request, $id)
     {
         // Validasi
-        $validated = $request->validate([
-            'id' => 'required',
-            'nama_matkul' => 'required',
-            'jml_sks' => 'required',
-        ]);
+        // $validated = $request->validate([
+        //     'id' => 'required',
+        //     'nama_matkul' => 'required',
+        //     'jml_sks' => 'required',
+        // ]);
 
         $matakuliah = MatakuliahModel::findOrFail($id);
         $matakuliah->id = $request->id;
         $matakuliah->nama_matkul = $request->nama_matkul;
         $matakuliah->jml_sks = $request->jml_sks;
+        $matakuliah->id_dosen = $request->id_dosen;
         $matakuliah->save();
         return redirect()->route('matakuliah.index')
             ->with('success', 'Data berhasil diedit!');

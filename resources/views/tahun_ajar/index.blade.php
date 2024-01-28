@@ -35,8 +35,8 @@
                             <td>{{$no++}}</td>
                             <td>{{$ta->tahun_ajar}}</td>
                             <td>{{$ta->semester}}</td>
-                            <td style="text-align: center;"><a href="#" class="btn btn-sm btn-warning mr-3"><i class="fas fa-edit"></i></a> 
-                            <a href="" class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i></a></td>
+                            <td style="text-align: center;"><a href="{{ route('tahun_ajar.edit', $ta->id)}}" class="btn btn-sm btn-warning mr-3"><i class="fas fa-edit"></i></a> 
+                            <a href="/tahun_ajar/destroy/{{$ta->id}}" class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i></a></td>
                         </tr>
                         @endforeach
                         </tbody>

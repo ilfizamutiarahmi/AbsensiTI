@@ -25,7 +25,7 @@ Route::get('/', function () {
 Route::get('/kelas', 'App\Http\Controllers\KelasController@index')->name('kelas.index');
 Route::get('/kelas/create', 'App\Http\Controllers\KelasController@create')->name('kelas.create');
 Route::get('/kelas/edit/{id}', 'App\Http\Controllers\KelasController@edit')->name('kelas.edit');
-Route::post('/kelas/$id', 'App\Http\Controllers\KelasController@update')->name('kelas.update');
+Route::post('/kelas/{id}', 'App\Http\Controllers\KelasController@update')->name('kelas.update');
 Route::post('/kelas', 'App\Http\Controllers\KelasController@store')->name('kelas.store');
 Route::get('/kelas/destroy/{id}','App\Http\Controllers\KelasController@destroy')->name('kelas.destroy');
 
@@ -48,6 +48,9 @@ Route::get('/mahasiswa/destroy/{id}','App\Http\Controllers\MahasiswaController@d
 Route::get('/tahun_ajar','App\Http\Controllers\TahunAjarController@index')->name('tahun_ajar.index');
 Route::get('/tahun_ajar/create','App\Http\Controllers\TahunAjarController@create')->name('tahun_ajar.create');
 Route::post('/tahun_ajar', 'App\Http\Controllers\TahunAjarController@store')->name('tahun_ajar.store');
+Route::get('/tahun_ajar/edit/{id}','App\Http\Controllers\TahunAjarController@edit')->name('tahun_ajar.edit');
+Route::patch('/tahun_ajar/{id}', 'App\Http\Controllers\TahunAjarController@update')->name('tahun_ajar.update');
+Route::get('/tahun_ajar/destroy/{id}','App\Http\Controllers\TahunAjarController@destroy')->name('tahun_ajar.destroy');
 
 
 //prodi
@@ -55,7 +58,7 @@ Route::get('/prodi','App\Http\Controllers\ProdiController@index')->name('prodi.i
 Route::get('/prodi/create','App\Http\Controllers\ProdiController@create')->name('prodi.create');
 Route::post('/prodi', 'App\Http\Controllers\ProdiController@store')->name('prodi.store');
 Route::get('/prodi/edit/{id}','App\Http\Controllers\ProdiController@edit')->name('prodi.edit');
-Route::post('/prodi/$id', 'App\Http\Controllers\ProdiController@update')->name('prodi.update');
+Route::patch('/prodi/{id}', 'App\Http\Controllers\ProdiController@update')->name('prodi.update');
 Route::get('/prodi/destroy/{id}','App\Http\Controllers\ProdiController@destroy')->name('prodi.destroy');
 
 //matakuliah
@@ -63,7 +66,7 @@ Route::get('/matakuliah','App\Http\Controllers\MatakuliahController@index')->nam
 Route::get('/matakuliah/create','App\Http\Controllers\MatakuliahController@create')->name('matakuliah.create');
 Route::post('/matakuliah', 'App\Http\Controllers\MatakuliahController@store')->name('matakuliah.store');
 Route::get('/matakuliah/edit/{id}','App\Http\Controllers\MatakuliahController@edit')->name('matakuliah.edit');
-Route::post('/matakuliah/$id', 'App\Http\Controllers\MatakuliahController@update')->name('matakuliah.update');
+Route::patch('/matakuliah/{id}', 'App\Http\Controllers\MatakuliahController@update')->name('matakuliah.update');
 Route::get('/matakuliah/destroy/{id}','App\Http\Controllers\MatakuliahController@destroy')->name('matakuliah.destroy');
 
 
