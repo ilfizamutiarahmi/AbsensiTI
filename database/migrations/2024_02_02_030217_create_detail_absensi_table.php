@@ -11,15 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('absensi', function (Blueprint $table) {
+        Schema::create('detail_absensi', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('id_absensi');
+            $table->foreign('id_absensi')->references('id')->on('absensi');
             $table->unsignedBigInteger('id_mhs');
-            $table->unsignedBigInteger('id_jadwal');
             $table->foreign('id_mhs')->references('id')->on('mahasiswa');
-            $table->foreign('id_jadwal')->references('id')->on('jadwal');
             $table->string('status');
             $table->string('keterangan');
-            $table->datetime('tanggal');
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('absensi');
+        Schema::dropIfExists('detail_absensi');
     }
 };

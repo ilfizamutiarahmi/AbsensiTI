@@ -54,6 +54,7 @@ Route::get('/tahun_ajar/destroy/{id}','App\Http\Controllers\TahunAjarController@
 
 //Absensi
 Route::get('/absensi','App\Http\Controllers\AbsensiController@index')->name('absensi.index');
+Route::get('/absensi/create','App\Http\Controllers\AbsensiController@create')->name('absensi.create');
 Route::post('/absensi', 'App\Http\Controllers\AbsensiController@store')->name('absensi.store');
 
 //Jadwal
