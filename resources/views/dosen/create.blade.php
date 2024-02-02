@@ -31,8 +31,12 @@
                     <input type="email" class="form-control" name="email" id="email" placeholder="">
                   </div>
                   <div class="form-group">
-                    <label for="jenis_kl">Jenis Kelamin</label>
-                    <input type="text" class="form-control" name="jenis_kelamin" id="jenis_kelamin" placeholder="">
+                    <label for="jenis_kelamin">Jenis Kelamin</label>
+                    <select name="jenis_kelamin" class="form-control">
+                    <option value="">-- Pilih --</option>
+                      <option value="Laki-Laki">Laki-Laki</option>
+                      <option value="Perempuan">Perempuan</option>
+                    </select>
                   </div>
                   <div class="form-group">
                     <label for="alamat">Alamat</label>
