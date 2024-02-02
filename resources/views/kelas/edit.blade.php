@@ -26,7 +26,8 @@
               <!-- /.card-header -->
               <!-- form start -->
               <form method="post" action="{{url("/kelas/{$kelas->id}")}}">
-              @csrf
+                @method('PATCH')
+                @csrf
                 <div class="card-body">
                   <div class="form-group">
                     <label for="nama_kelas">Nama Kelas</label>
@@ -43,7 +44,7 @@
                         @foreach($prodi as $prd)
                             <option value="{{$prd->id}}">{{$prd->nama_prodi}}</option>
                         @endforeach
-                    </select>                  
+                    </select>
                   </div>
                 </div>
                 <!-- /.card-body -->

@@ -17,7 +17,7 @@ class MahasiswaController extends Controller
     }
 
     public function create(){
-        
+
         $mahasiswa = Mahasiswa::All();
         $kelas = Kelas::All();
         return view('mahasiswa.create')->with('kelas',$kelas);
@@ -33,34 +33,25 @@ class MahasiswaController extends Controller
                 'alamat' => $request->alamat,
                 'no_telp' => $request->no_telp,
 
-                
+
             ]);
-            return redirect('/mahasiswa')-> with('status', 'Data Mahasiswa berhasil ditambahkan!');  
+            return redirect('/mahasiswa')-> with('status', 'Data Mahasiswa berhasil ditambahkan!');
     }
 
     public function edit($id){
-        $user = User::where('id',$id)->first();
-        $mhs = Mahasiswa::where('id_user',$id)->first();
-        return view("mahasiswa.edit")
-            ->with('user',$user)
-            ->with('mhs',$mhs);
+        $mahasiswa = Mahasiswa::findOrFail($id);
+        $kelas = Kelas::get();
+        return view('mahasiswa.edit', compact('mahasiswa','kelas'));
     }
 
     public function update(Request $request, $id){
-        $user = User::where('id',$id)->update([
-            'email' => $request->email,
-            'name' => $request->name,
-        ]);
-
-        $mhs = Mahasiswa::where('id_user',$id)->update([
-            'id_user' =>  $user->id,
-                'nim' => $request->nim,
-                'nama_mhs' => $request->nama_mahasiswa,
-                'jenis_kelamin' => $request->jenis_kelamin,
-                'alamat' => $request->alamat,
-                'no_telp' => $request->no_telp,
-            ]);
-        
+        $mahasiswa = Mahasiswa::findOrFail($id);
+        $mahasiswa->nim = $request->nim;
+        $mahasiswa->nama_mhs = $request->nama_mhs;
+        $mahasiswa->jenis_kelamin = $request->jenis_kelamin;
+        $mahasiswa->alamat = $request->alamat;
+        $mahasiswa->id_kelas = $request->id_kelas;
+        $mahasiswa->save();
 
     return redirect('/mahasiswa')-> with('status', 'Data Mahasiswa berhasil diupdate!');
     }

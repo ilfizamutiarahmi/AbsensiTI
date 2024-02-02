@@ -6,11 +6,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Kelas;
 use App\Models\ProdiModel;
-use Validator;
+use Illuminate\Support\Facades\Facade;
 
 class KelasController extends Controller
 {
-    
+
     // public function __construct()
     // {
     //     $this->middleware('auth');
@@ -48,10 +48,10 @@ class KelasController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-  
+
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(),[
+        $kelas = Kelas::make($request->all(),[
             'nama_kelas' => 'required',
             'nama_pa' => 'required',
         ]);

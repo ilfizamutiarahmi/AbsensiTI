@@ -30,8 +30,8 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @php 
-                          $no = 1; 
+                        @php
+                          $no = 1;
                         @endphp
                         @foreach($dosen as $ds)
                         <tr>
@@ -41,7 +41,7 @@
                             <td>{{$ds->jenis_kelamin}}</td>
                             <td>{{$ds->no_hp}}</td>
                             <td>{{$ds->alamat}}</td>
-                            <td style="text-align: center;"><a href="" class="btn btn-sm btn-warning mr-3"><i class="fas fa-edit"></i></a> 
+                            <td style="text-align: center;"><a href="/dosen/edit/{{$ds->id}}" class="btn btn-sm btn-warning mr-3"><i class="fas fa-edit"></i></a>
                             <a href="/dosen/destroy/{{$ds->id}}" class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i></a></td>
                         </tr>
                         @endforeach
