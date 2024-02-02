@@ -5,11 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Absensi extends Model
+class DetailAbsensi extends Model
 {
     use HasFactory;
     protected $primaryKey = 'id';
-    protected $table = 'absensi';
-    public $fillable = ['id_jadwal','tanggal'];
-
+    protected $table = 'detail_absensi';
+    public $fillable = ['id_absensi','id_mhs','status','keterangan'];
 }

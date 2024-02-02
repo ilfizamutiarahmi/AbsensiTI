@@ -30,19 +30,33 @@
                             @php
                                 $no = 1;
                             @endphp
-                            @foreach($absen as $key => $ab)
+                            @foreach($mhs as $key => $ab)
                             <tr>
                                 <td>{{$no++}}</td>
                                 <td>{{$ab->nim}}</td>
                                 <td>{{$ab->nama_mhs}}</td>
-                                <td>{{$ab->status}}</td>
-                                <td>{{$ab->keterangan}}</td>
+                                <form method="POST" action="{{route('absensi.store')}}">
+                                @csrf
+                                <td>
+                                    <select name="status[]" class="form-control">
+                                      @foreach($statuses as $st)
+                                        <option value="{{ $st }}"> {{ $st }} </option>
+                                      @endforeach
+                                    </select>
+                                </td>
+                                <td>
+                                    <input type="hidden" class="form-control" name="id_mhs[]" id="id_mhs" value="{{ $ab->id }}" >
+                                    <input type="text" class="form-control" name="keterangan" id="keterangan" value="hadir">
+                                    <input type="hidden" class="form-control" name="hari_ini" id="hari_ini" value="{{ $hari_ini }}">
+                                </td>
                             </tr>
                             @endforeach
                           </tbody>
                         </table>
                         <div class="footer mt-3" align="right">
+                          <button type="submit" class="btn btn-primary" id="btn-submit">Simpan</button>
                         </div>
+                      </form>
                         </div>
                     <!-- /.card-body -->
                   </div>

@@ -58,11 +58,11 @@
                 </div>
                 <div class="form-group">
                     <label for="jam_mulai">Jam Mulai</label>
-                    <input type="text" class="form-control" name="jam_mulai" id="jam_mulai" >
+                    <input type="time" class="form-control" name="jam_mulai" id="jam_mulai" >
                 </div>
                 <div class="form-group">
                     <label for="jam_akhir">Jam Akhir</label>
-                    <input type="text" class="form-control" name="jam_akhir" id="jam_akhir" >
+                    <input type="time" class="form-control" name="jam_akhir" id="jam_akhir" >
                 </div>
                 <!-- /.card-body -->
 

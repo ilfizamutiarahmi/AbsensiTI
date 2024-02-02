@@ -9,46 +9,69 @@ use App\Models\Jadwal;
 use App\Models\Mahasiswa;
 use App\Models\Absensi;
 use App\Models\Kelas;
-
+use App\Models\DetailAbsensi;
 
 class AbsensiController extends Controller
 {
     public function index(Request $request)
     {
+        $now = Carbon::now();
+        $formattedDate = $now->format('Y-m-d');
+        $absen = DetailAbsensi::select('id_absensi','id_jadwal','id_mhs','nama_mhs','nim','status','keterangan')
+                                ->join('absensi','detail_absensi.id_absensi','=','absensi.id')
+                                ->join('jadwal','absensi.id_jadwal','=','jadwal.id')
+                                ->join('mahasiswa','detail_absensi.id_mhs','=','mahasiswa.id')
+                                ->get();
+
+        return view('absensi.index')->with('absen',$absen)
+                                    ->with('hari_ini',$now);
+    }
+
+    public function create(Request $request){
+        $now = Carbon::now();
         $mhs = Mahasiswa::select('mahasiswa.id','nim','nama_mhs','mahasiswa.id_kelas','jenis_kelamin','no_telp')
                                 ->join('kelas','mahasiswa.id_kelas','=','kelas.id')
                                 ->where('mahasiswa.id_kelas','=', '1')
                                 ->get();
-        $jadwal = Jadwal::select('jadwal.id','jadwal.id_dosen','id_tahunajar','jam_mulai','jam_akhir')
-                            ->join('kelas','jadwal.id_kelas','=','kelas.id')
-                            ->join('dosen','jadwal.id_dosen','=','dosen.id')
-                            ->join('tahun_ajar','jadwal.id_tahunajar','=','tahun_ajar.id')
-                            ->get();
-        $absen = Absensi::all();
+        $jadwal = Jadwal::select('jadwal.id','id_tahunajar','jam_mulai','jam_akhir','nama_matkul')
+                                ->join('kelas','jadwal.id_kelas','=','kelas.id')
+                                ->join('matakuliah','jadwal.id_matkul','=','matakuliah.id')
+                                ->join('tahun_ajar','jadwal.id_tahunajar','=','tahun_ajar.id')
+                                ->get();
         $status = ['Hadir','Sakit','Izin','Alfa'];
-        $now = Carbon::now();
-        return view('absensi.index')->with('jadwal',$jadwal)
-                                    ->with('mhs',$mhs)
-                                    ->with('absen',$absen)
-                                    ->with('statuses',$status)
-                                    ->with('hari_ini',$now);
+
+        return view('absensi.create')->with('jadwal',$jadwal)
+                    ->with('mhs',$mhs)
+                    ->with('statuses',$status)
+                    ->with('hari_ini',$now);
     }
 
     public function store(Request $request)
     {
             $request->validate([
-                'keterangan' => 'nullable|string|max:255', 
+                'keterangan' => 'nullable|string|max:255',
+                
             ]);
-            $data = [
-                'id_mhs' =>  $request->id_mhs,
-                'id_jadwal' => "1",
-                'status' => $request->status,
-                'keterangan' => $request->keterangan,
+
+            $absensi = Absensi::create([
+                'id_jadwal' => "7",
                 'tanggal' => $request->hari_ini
+            ]);
+            
+            for($i=0;$i<count($request->id_mhs);$i++){
+                DetailAbsensi::create([
+                    'id_absensi' =>  $absensi->id,
+                    'id_mhs' =>  $request->id_mhs[$i],
+                    'status' => $request->status[$i],
+                    'keterangan' => $request->keterangan,
+                ]);
+            }
 
-            ];
-            DB::table('absensi')->insert($data);
-
-            return redirect('/absensi')-> with('status', 'Data Mahasiswa berhasil ditambahkan!');  
+            return redirect('/absensi')-> with('status', 'Daftar hadir berhasil ditambahkan berhasil ditambahkan!');
     }
+
+    // public function daftar_hadir()
+    // {
+    //     $absensi = Absensi::all()->where('')
+    // }
 }

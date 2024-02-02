@@ -78,6 +78,12 @@
                   <p>Absensi</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="{{route('absensi.create')}}" class="nav-link {{ (Route::currentRouteName() == 'absensi.create') ? 'active' : ''}}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Ambil Absensi</p>
+                </a>
+              </li>
             </ul>
           </li>
         </ul>
