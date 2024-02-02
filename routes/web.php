@@ -21,17 +21,28 @@ Route::get('/', function () {
 
 
 // Auth::routes();
-# Route Kelas
+
+//Route Login
+Route::get('/login', 'App\Http\Controllers\LoginController@index')->name('login.index');
+Route::post('/login-proses', 'App\Http\Controllers\LoginController@login_proses')->name('login-proses');
+Route::get('/logout', 'App\Http\Controllers\LoginController@logout')->name('logout');
+Route::get('/register', 'App\Http\Controllers\LoginController@register')->name('register');
+Route::post('/register-proses', 'App\Http\Controllers\LoginController@register_proses')->name('register-proses');
+Route::get('/dashboard', 'App\Http\Controllers\LoginController@dashboard')->name('dashboard');
+
+//Route Kelas
 Route::get('/kelas', 'App\Http\Controllers\KelasController@index')->name('kelas.index');
 Route::get('/kelas/create', 'App\Http\Controllers\KelasController@create')->name('kelas.create');
 Route::get('/kelas/edit/{id}', 'App\Http\Controllers\KelasController@edit')->name('kelas.edit');
-Route::post('/kelas/{id}', 'App\Http\Controllers\KelasController@update')->name('kelas.update');
+Route::patch('/kelas/{id}', 'App\Http\Controllers\KelasController@update')->name('kelas.update');
 Route::post('/kelas', 'App\Http\Controllers\KelasController@store')->name('kelas.store');
 Route::get('/kelas/destroy/{id}','App\Http\Controllers\KelasController@destroy')->name('kelas.destroy');
 
 //dosen
 Route::get('/dosen','App\Http\Controllers\DosenController@index')->name('dosen.index');
 Route::get('/dosen/create','App\Http\Controllers\DosenController@create')->name('dosen.create');
+Route::get('/dosen/edit/{id}', 'App\Http\Controllers\DosenController@edit')->name('dosen.edit');
+Route::patch('/dosen/{id}', 'App\Http\Controllers\DosenController@update')->name('dosen.update');
 Route::post('/dosen', 'App\Http\Controllers\DosenController@store')->name('dosen.store');
 Route::get('/dosen/destroy/{id}','App\Http\Controllers\DosenController@destroy')->name('dosen.destroy');
 
@@ -40,7 +51,7 @@ Route::get('/mahasiswa','App\Http\Controllers\MahasiswaController@index')->name(
 Route::get('/mahasiswa/create','App\Http\Controllers\MahasiswaController@create')->name('mahasiswa.create');
 Route::post('/mahasiswa', 'App\Http\Controllers\MahasiswaController@store')->name('mahasiswa.store');
 Route::get('/mahasiswa/edit/{id}','App\Http\Controllers\MahasiswaController@edit')->name('mahasiswa.edit');
-Route::post('/mahasiswa/$id', 'App\Http\Controllers\MahasiswaController@update')->name('mahasiswa.update');
+Route::patch('/mahasiswa/{id}', 'App\Http\Controllers\MahasiswaController@update')->name('mahasiswa.update');
 Route::get('/mahasiswa/destroy/{id}','App\Http\Controllers\MahasiswaController@destroy')->name('mahasiswa.destroy');
 
 
