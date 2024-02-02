@@ -28,12 +28,13 @@ class AbsensiController extends Controller
     }
 
     public function create(Request $request){
+        $filterkelas = $request->id_kelas;
         $now = Carbon::now();
         $mhs = Mahasiswa::select('mahasiswa.id','nim','nama_mhs','mahasiswa.id_kelas','jenis_kelamin','no_telp')
                                 ->join('kelas','mahasiswa.id_kelas','=','kelas.id')
-                                ->where('mahasiswa.id_kelas','=', '1')
+                                ->where('mahasiswa.id_kelas','=', $filterkelas)
                                 ->get();
-        $jadwal = Jadwal::select('jadwal.id','id_tahunajar','jam_mulai','jam_akhir','nama_matkul')
+        $jadwal = Jadwal::select('jadwal.id','id_tahunajar','jam_mulai','jam_akhir','nama_matkul','jadwal.id_kelas','nama_kelas')
                                 ->join('kelas','jadwal.id_kelas','=','kelas.id')
                                 ->join('matakuliah','jadwal.id_matkul','=','matakuliah.id')
                                 ->join('tahun_ajar','jadwal.id_tahunajar','=','tahun_ajar.id')
