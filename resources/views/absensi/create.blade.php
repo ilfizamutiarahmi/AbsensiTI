@@ -16,6 +16,32 @@
                     </div>
                     <!-- /.card-header -->
                         <div class="card-body">
+                          <div class="row">
+                            <div class="col-12">
+                              <form method="GET">
+                                @csrf
+                                <div class="card-body">
+                                  <div class="row">
+                                    <div class="col-6">
+                                      <div class="form-group">
+                                          <label for="id_kelas">Kelas</label>
+                                          <select name="id_kelas" class="form-control">
+                                              <option value="">--- pilih ---</option>
+                                              @foreach($jadwal as $jd)
+                                              <option value="{{ $jd->id_kelas }}">{{ $jd->nama_kelas}}</option>
+                                              @endforeach
+                                          </select>
+                                      </div>
+                                    </div>
+                                    <div class="col-6">
+                                      <div class="form-group">
+                                            <label for=""></label><br>
+                                          <button type="submit" class="btn btn-primary mt-2">Submit</button>
+                                      </div>
+                                  </div>
+                              </form>
+                            </div>
+                          </div>
                           <table id="example2" class="table table-bordered table-hover">
                             <thead>
                             <tr>
