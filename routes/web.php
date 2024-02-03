@@ -80,5 +80,6 @@ Route::get('/matakuliah/edit/{id}','App\Http\Controllers\MatakuliahController@ed
 Route::patch('/matakuliah/{id}', 'App\Http\Controllers\MatakuliahController@update')->name('matakuliah.update');
 Route::get('/matakuliah/destroy/{id}','App\Http\Controllers\MatakuliahController@destroy')->name('matakuliah.destroy');
 
+//dashboard
 
-// Route::get('dashboard',HomeController::class,'dashboard');
+Route::get('/dashboard', 'App\Http\Controllers\HomeController@dashboard')->name('dashboard');
