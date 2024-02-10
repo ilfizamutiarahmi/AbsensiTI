@@ -29,8 +29,11 @@ Route::get('/logout', 'App\Http\Controllers\LoginController@logout')->name('logo
 Route::get('/register', 'App\Http\Controllers\LoginController@register')->name('register');
 Route::post('/register-proses', 'App\Http\Controllers\LoginController@register_proses')->name('register-proses');
 Route::get('/dashboard', 'App\Http\Controllers\LoginController@dashboard')->name('dashboard');
+Route::get('/logout', 'App\Http\Controllers\LoginController@logout')->name('logout');
 
-//Route Kelas
+// //middleware
+// Route::group(['prefix' => 'admin','middleware' => ['auth'], 'as' => 'admin.'] , function(){
+    //Route Kelas
 Route::get('/kelas', 'App\Http\Controllers\KelasController@index')->name('kelas.index');
 Route::get('/kelas/create', 'App\Http\Controllers\KelasController@create')->name('kelas.create');
 Route::get('/kelas/edit/{id}', 'App\Http\Controllers\KelasController@edit')->name('kelas.edit');
@@ -90,5 +93,13 @@ Route::get('/matakuliah/edit/{id}','App\Http\Controllers\MatakuliahController@ed
 Route::patch('/matakuliah/{id}', 'App\Http\Controllers\MatakuliahController@update')->name('matakuliah.update');
 Route::get('/matakuliah/destroy/{id}','App\Http\Controllers\MatakuliahController@destroy')->name('matakuliah.destroy');
 
+//dashboard
+Route::get('/', function () {
+    return view('dashboard');
+});
+Route::get('/dashboard', 'App\Http\Controllers\HomeController@dashboard')->name('dashboard');
 
-// Route::get('dashboard',HomeController::class,'dashboard');
+// });
+
+
+

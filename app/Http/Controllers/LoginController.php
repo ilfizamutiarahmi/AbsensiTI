@@ -25,14 +25,20 @@ class LoginController extends Controller
         ];
 
         if(Auth::attempt($data)){
-            return redirect()->route('dashboard');
+            //return redirect()->route('dashboard');
+            if(Auth::user()->role === 'admin'){
+                return redirect()->route('dashboard')->with('success', 'Login Sebagai Admin');
+            }else{
+                return redirect()->route('dashboard')->with('success', 'Login Sebagai Dosen');
+            }
         }else{
             return redirect()->route('login.index')->with('failed','Email atau Password Salah !!');
         }
     }
 
     public function logout(){
-
+        Auth::logout();
+        return redirect()->route('login.index')->with('success','Kamu sudah berhasil Logout');
     }
 
     public function register(){
@@ -43,12 +49,14 @@ class LoginController extends Controller
         $request->validate([
             'username' => 'required',
             'email' => 'required|email|unique:users,email',
-            'password' => 'required|min:6'
+            'password' => 'required|min:6',
+            'role' => 'required'
         ]);
 
         $data['username'] = $request->username;
         $data['email'] = $request->email;
         $data['password'] = Hash::make($request->password);
+        $data['role'] = $request->role;
 
         User::create($data);
 
@@ -65,10 +73,6 @@ class LoginController extends Controller
 
     }
 
-    public function dashboard()
-    {
-        return view('dashboard');
 
-        return abort(403);
-    }
+
 }

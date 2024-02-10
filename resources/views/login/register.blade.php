@@ -25,6 +25,7 @@
 <p class="login-box-msg">Halaman Register</p>
 <form action="{{ route('register-proses') }}" method="post">
 @csrf
+
 <div class="input-group mb-3">
     <input type="name" name="username" class="form-control" placeholder="Username" value="{{ old('username') }}">
 <div class="input-group-append">
@@ -33,9 +34,11 @@
 </div>
 </div>
 </div>
+
 @error('email')
     <small>{{ $message }}</small>
 @enderror
+
 <div class="input-group mb-3">
     <input type="email" name="email" class="form-control" placeholder="Email" value="{{ old('email') }}">
 <div class="input-group-append">
@@ -44,9 +47,11 @@
 </div>
 </div>
 </div>
+
 @error('email')
     <small>{{ $message }}</small>
 @enderror
+
 <div class="input-group mb-3">
 <input type="password" name="password" class="form-control" placeholder="Password">
 <div class="input-group-append">
@@ -59,6 +64,9 @@
     <small>{{ $message }}</small>
 @enderror
 
+<div class="input-group mb-3">
+    <input type="hidden" name="role" class="form-control" placeholder="role" value="dosen">
+</div>
 
 <div class="col-15">
 <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
@@ -87,7 +95,7 @@
             title: "Oops...",
             text: "{{ $message }}",
             footer: '<a href="#">Why do I have this issue?</a>'
-        }); 
+        });
     </script>
 @endif
 </body>
