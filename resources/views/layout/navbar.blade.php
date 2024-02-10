@@ -69,6 +69,12 @@
                   <p>Prodi</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="{{ route('logout') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Logout</p>
+                </a>
+              </li>
             </ul>
           </li>
         <!-- Tampilan Dosen -->
@@ -84,15 +90,21 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="./index.html" class="nav-link">
-                <a href="{{ route('dosen.index')}}" class="nav-link">
+                <a href="" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Absensi</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('mahasiswa.index')}}" class="nav-link">
+                <a href="" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Mahasiswa</p>
+                  <p>Ambil Absensi</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('logout') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Logout</p>
                 </a>
               </li>
             </ul>
