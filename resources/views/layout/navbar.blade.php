@@ -21,6 +21,8 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
               with font-awesome or any other icon font library -->
+        <!-- Tampilan Admin -->
+        @if (auth()->check() && auth()->user()->role == "admin")
           <li class="nav-item menu-open">
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -73,19 +75,46 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{route('absensi.index')}}" class="nav-link {{ (Route::currentRouteName() == 'absensi.index') ? 'active' : ''}}">
+                <a href="{{ route('logout') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Logout</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+        <!-- Tampilan Dosen -->
+        @elseif(auth()->check() && auth()->user()->role == "dosen")
+        <li class="nav-item menu-open">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Data Master
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="./index.html" class="nav-link">
+                <a href="" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Absensi</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{route('absensi.create')}}" class="nav-link {{ (Route::currentRouteName() == 'absensi.create') ? 'active' : ''}}">
+                <a href="" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Ambil Absensi</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="{{ route('logout') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Logout</p>
+                </a>
+              </li>
             </ul>
           </li>
+        @endif
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

@@ -6,11 +6,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Kelas;
 use App\Models\ProdiModel;
-use Validator;
+use Illuminate\Support\Facades\Facade;
 
 class KelasController extends Controller
 {
-    
+
     // public function __construct()
     // {
     //     $this->middleware('auth');
@@ -26,7 +26,8 @@ class KelasController extends Controller
     {
         //menampilkan semua data dari model kelas
         $kelas = Kelas::all();
-        return view('kelas.index')->with('kelas', $kelas);
+        $prodi = ProdiModel::all();
+        return view('kelas.index',compact('kelas','prodi'));
     }
 
        /**
@@ -47,10 +48,10 @@ class KelasController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-  
+
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(),[
+        $kelas = Kelas::make($request->all(),[
             'nama_kelas' => 'required',
             'nama_pa' => 'required',
         ]);
@@ -66,7 +67,7 @@ class KelasController extends Controller
      */
     public function show($id)
     {
-        $kelas = kelas::findOrFail($id);
+        $kelas = Kelas::findOrFail($id);
         return view('kelas.show', compact('kelas'));
     }
 
@@ -79,7 +80,8 @@ class KelasController extends Controller
     public function edit($id)
     {
         $kelas = kelas::findOrFail($id);
-        return view('kelas.edit', compact('kelas'));
+        $prodi = ProdiModel::get();
+        return view('kelas.edit', compact('kelas','prodi'));
 
     }
 
@@ -93,16 +95,17 @@ class KelasController extends Controller
     public function update(Request $request, $id)
     {
         // Validasi
-        $validated = $request->validate([
-            'id' => 'required',
-            'nama_kelas' => 'required',
-            'nama_pa' => 'required',
-        ]);
+        // $validated = $request->validate([
+        //     'id' => 'required',
+        //     'nama_kelas' => 'required',
+        //     'nama_pa' => 'required',
+        // ]);
 
         $kelas = kelas::findOrFail($id);
         $kelas->id = $request->id;
         $kelas->nama_kelas = $request->nama_kelas;
         $kelas->nama_pa = $request->nama_pa;
+        $kelas->id_prodi = $request->id_prodi;
         $kelas->save();
         return redirect()->route('kelas.index')
             ->with('success', 'Data berhasil diedit!');

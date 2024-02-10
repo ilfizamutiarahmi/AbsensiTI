@@ -30,8 +30,8 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @php 
-                            $no = 1; 
+                        @php
+                            $no = 1;
                         @endphp
                         @foreach($mahasiswa as $mhs)
                         <tr>
@@ -41,7 +41,7 @@
                             <td>{{$mhs->jenis_kelamin}}</td>
                             <td>{{$mhs->no_telp}}</td>
                             <td>{{$mhs->alamat}}</td>
-                            <td style="text-align: center;"><a href="#" class="btn btn-sm btn-warning mr-3"><i class="fas fa-edit"></i></a> 
+                            <td style="text-align: center;"><a href="/mahasiswa/edit/{{$mhs->id}}" class="btn btn-sm btn-warning mr-3"><i class="fas fa-edit"></i></a>
                             <a href="/mahasiswa/destroy/{{$mhs->id}}" class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i></a></td>
                         </tr>
                         @endforeach

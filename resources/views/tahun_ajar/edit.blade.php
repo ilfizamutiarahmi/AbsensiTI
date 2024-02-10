@@ -7,21 +7,21 @@
                 <div class="col-12">
                 <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Edit data Program Studi</h3>
+                <h3 class="card-title">Edit data Tahun Ajar</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form method="POST" action="{{url("/prodi/{$prodi->id}")}}">
+              <form method="POST" action="{{url("/tahun_ajar/{$th_ajar->id}")}}">
                 @method('PATCH')
                 @csrf
                 <div class="card-body">
                 <div class="form-group">
-                    <label for="nama_prodi">Nama Program Studi</label>
-                    <input type="text" class="form-control" name="nama_prodi" value="{{$prodi->nama_prodi}}" id="nama_prodi">
+                    <label for="nama_prodi">Tahun Ajar</label>
+                    <input type="text" class="form-control" name="tahun_ajar" value="{{$th_ajar->tahun_ajar}}" id="nama_prodi">
                   </div>
                   <div class="form-group">
-                    <label for="kaprodi">Nama Kepala Prodi</label>
-                    <input type="text" class="form-control" name="kaprodi" id="kaprodi" value="{{ $prodi->kaprodi }}">
+                    <label for="kaprodi">Semester</label>
+                    <input type="text" class="form-control" name="semester" id="semester" value="{{ $th_ajar->semester }}">
                   </div>
                   
                 <!-- /.card-body -->

@@ -68,6 +68,11 @@
           </form>
         </div>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" role="button">
+          <i class="fa-duotone fa-right-from-bracket"></i>
+        </a>
+      </li>
     </ul>
   </nav>
   <!-- /.navbar -->

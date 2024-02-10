@@ -7,25 +7,32 @@
                 <div class="col-12">
                 <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Edit data Program Studi</h3>
+                <h3 class="card-title">Tambah data Mata Kuliah</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form method="POST" action="{{url("/prodi/{$prodi->id}")}}">
+              <form method="POST" action="{{url("/matakuliah/{$matakuliah->id}")}}">
                 @method('PATCH')
                 @csrf
                 <div class="card-body">
                 <div class="form-group">
-                    <label for="nama_prodi">Nama Program Studi</label>
-                    <input type="text" class="form-control" name="nama_prodi" value="{{$prodi->nama_prodi}}" id="nama_prodi">
+                    <label for="nama_matkul">Nama Mata Kuliah</label>
+                    <input type="text" class="form-control" name="nama_matkul" id="nama_matkul" value="{{$matakuliah->nama_matkul}}">
                   </div>
                   <div class="form-group">
-                    <label for="kaprodi">Nama Kepala Prodi</label>
-                    <input type="text" class="form-control" name="kaprodi" id="kaprodi" value="{{ $prodi->kaprodi }}">
+                    <label for="jml_sks">Jumlah SKS</label>
+                    <input type="integer" class="form-control" name="jml_sks" id="jml_sks" value="{{$matakuliah->jml_sks}}">
                   </div>
-                  
+                  <div class="form-group">
+                    <label for="id_dosen">Dosen</label>
+                    <select name="id_dosen" class="form-control">
+                        <option value="">--- pilih ---</option>
+                        @foreach($dosen as $dosen)
+                            <option value="{{$dosen->id}}">{{$dosen->nama_dosen}}</option>
+                        @endforeach
+                    </select>                  
+                  </div>
                 <!-- /.card-body -->
-
                 <div class="card-footer">
                   <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
