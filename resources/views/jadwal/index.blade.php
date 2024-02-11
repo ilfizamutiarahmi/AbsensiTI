@@ -28,6 +28,7 @@
                                 <th>Dosen</th>
                                 <th>Tahun Ajar / Semester</th>
                                 <th>Ruang</th>
+                                <th>Hari</th>
                                 <th>Jam mulai</th>
                                 <th>Jam akhir</th>
                                 <th>Aksi</th>
@@ -46,10 +47,11 @@
                                 <td>{{$jdw->nama_dosen}}</td>
                                 <td>{{$jdw->tahun_ajar}} / {{$jdw->semester}}</td>
                                 <td>{{$jdw->ruang}}</td>
-                                <td>{{ date('d M Y H:i:s', strtotime($jdw->jam_mulai)) }}</td>
-                                <td>{{ date('d M Y H:i:s', strtotime($jdw->jam_akhir)) }}</td>
-                                <td style="text-align: center;"><a href="" class="btn btn-sm btn-warning mr-3"><i class="fas fa-edit"></i></a> 
-                                    <a href="" class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i></a></td>
+                                <td>{{$jdw->hari}}</td>
+                                <td>{{ date('H:i:s', strtotime($jdw->jam_mulai)) }}</td>
+                                <td>{{ date('H:i:s', strtotime($jdw->jam_akhir)) }}</td>
+                                <td style="text-align: center;"><a href="{{route ('jadwal.edit',$jdw->id) }}" class="btn btn-sm btn-warning mr-3"><i class="fas fa-edit"></i></a> 
+                                    <a href="{{route ('jadwal.destroy',$jdw->id) }}" class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i></a></td>
                                 </form>
                             </tr>
                             @endforeach

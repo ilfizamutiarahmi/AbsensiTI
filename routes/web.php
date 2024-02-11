@@ -75,6 +75,9 @@ Route::post('/absensi', 'App\Http\Controllers\AbsensiController@store')->name('a
 Route::get('/jadwal','App\Http\Controllers\JadwalController@index')->name('jadwal.index');
 Route::get('/jadwal/create','App\Http\Controllers\JadwalController@create')->name('jadwal.create');
 Route::post('/jadwal','App\Http\Controllers\JadwalController@store')->name('jadwal.store');
+Route::get('/jadwal/edit/{id}','App\Http\Controllers\JadwalController@edit')->name('jadwal.edit');
+Route::patch('/jadwal/{id}', 'App\Http\Controllers\JadwalController@update')->name('jadwal.update');
+Route::get('/jadwal/destroy/{id}','App\Http\Controllers\JadwalController@destroy')->name('jadwal.destroy');
 
 
 //prodi

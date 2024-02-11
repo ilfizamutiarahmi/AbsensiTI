@@ -13,7 +13,7 @@
           <img src="{{ asset('adminlte/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="#" class="d-block">{{auth()->user()->username}}</a>
         </div>
       </div>
       <!-- Sidebar Menu -->
@@ -94,16 +94,15 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./index.html" class="nav-link">
-                <a href="" class="nav-link">
+              <a href="{{route('absensi.create')}}" class="nav-link {{ (Route::currentRouteName() == 'absensi.create') ? 'active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Absensi</p>
+                  <p>Ambil Absensi</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="" class="nav-link">
+              <a href="{{route('absensi.index')}}" class="nav-link {{ (Route::currentRouteName() == 'absensi.index') ? 'active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Ambil Absensi</p>
+                  <p>Riwayat Absensi</p>
                 </a>
               </li>
               <li class="nav-item">

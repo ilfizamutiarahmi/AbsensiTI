@@ -11,7 +11,7 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form method="POST" action="{{url("/mahasiswa/{$mahasiswa->id}")}}">
+              <form method="POST" action="{{ route('jadwal.edit', ['id' => $jadwal->id]) }}">
                 @method('PATCH')
                 @csrf
                 <div class="card-body">
@@ -29,7 +29,7 @@
                     <select name="id_kelas" class="form-control">
                         <option value="{{ $mahasiswa->id_kelas }}">--- pilih ---</option>
                         @foreach($kelas as $kelas)
-                            <option value="{{$kelas->id}}">{{$kelas->nama_kelas}}</option>
+                            <option value="{{$kelas->id}}" {{ $mahasiswa->id_kelas == $kelas->id ? 'selected' : '' }}>{{$kelas->nama_kelas}}</option>
                         @endforeach
                     </select>
                   </div>
