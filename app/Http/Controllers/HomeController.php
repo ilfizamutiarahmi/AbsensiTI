@@ -11,7 +11,7 @@ class HomeController extends Controller
     {
         // Your controller logic here
     }
-    
+
     public function dashboard(){
         return view('dashboard');
     }

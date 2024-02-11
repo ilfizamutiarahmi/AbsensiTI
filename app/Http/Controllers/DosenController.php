@@ -28,7 +28,7 @@ class DosenController extends Controller
                 'username' => $request->username,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
-
+                'role' => $request->role
             ]);
 
             $dosen = Dosen::create([
@@ -41,7 +41,7 @@ class DosenController extends Controller
 
 
             ]);
-            return redirect('/dosen')-> with('status', 'Data Dosen berhasil ditambahkan!');
+            return redirect('dosen')-> with('status', 'Data Dosen berhasil ditambahkan!');
     }
 
     public function edit($id){

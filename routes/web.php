@@ -31,8 +31,8 @@ Route::post('/register-proses', 'App\Http\Controllers\LoginController@register_p
 Route::get('/dashboard', 'App\Http\Controllers\LoginController@dashboard')->name('dashboard');
 Route::get('/logout', 'App\Http\Controllers\LoginController@logout')->name('logout');
 
-// //middleware
-// Route::group(['prefix' => 'admin','middleware' => ['auth'], 'as' => 'admin.'] , function(){
+ //middleware
+ Route::middleware(['auth'])->group(function(){
     //Route Kelas
 Route::get('/kelas', 'App\Http\Controllers\KelasController@index')->name('kelas.index');
 Route::get('/kelas/create', 'App\Http\Controllers\KelasController@create')->name('kelas.create');
@@ -84,12 +84,13 @@ Route::patch('/matakuliah/{id}', 'App\Http\Controllers\MatakuliahController@upda
 Route::get('/matakuliah/destroy/{id}','App\Http\Controllers\MatakuliahController@destroy')->name('matakuliah.destroy');
 
 //dashboard
-Route::get('/', function () {
-    return view('dashboard');
-});
+// Route::get('/', function () {
+//     return view('dashboard');
+// });
+
 Route::get('/dashboard', 'App\Http\Controllers\HomeController@dashboard')->name('dashboard');
 
-// });
+ });
 
 
 

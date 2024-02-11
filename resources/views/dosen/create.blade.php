@@ -31,6 +31,10 @@
                     <input type="email" class="form-control" name="email" id="email" placeholder="">
                   </div>
                   <div class="form-group">
+                    <label for="password">Password Akun</label>
+                    <input type="password" class="form-control" name="password" id="password" placeholder="">
+                  </div>
+                  <div class="form-group">
                     <label for="jenis_kl">Jenis Kelamin</label>
                     <input type="text" class="form-control" name="jenis_kelamin" id="jenis_kelamin" placeholder="">
                   </div>
@@ -41,6 +45,9 @@
                   <div class="form-group">
                     <label for="no_hp">No HP</label>
                     <input type="text" class="form-control" name="no_hp" id="no_hp" placeholder="">
+                  </div>
+                  <div class="form-group">
+                    <input type="hidden" class="form-control" name="role" id="role" value="dosen">
                   </div>
                 <!-- /.card-body -->
 
