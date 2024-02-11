@@ -22,7 +22,7 @@ class MahasiswaSeeder extends Seeder
  
         	// insert data dummy pegawai dengan faker
         	Mahasiswa::create([
-        		'id_kelas' => "2",
+        		'id_kelas' => "1",
         		'nim' => $faker->unique()->numerify('######'),
                 'nama_mhs' => $faker->name,
                 'jenis_kelamin' => $faker->randomElement(['male', 'female']),

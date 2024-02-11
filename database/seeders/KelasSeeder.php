@@ -12,6 +12,6 @@ class KelasSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        
     }
 }

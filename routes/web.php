@@ -14,9 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard');
-});
+// Route::get('/', function () {
+//     return view('dashboard');
+// });
+
+
+Route::get('/', 'App\Http\Controllers\HomeController@dashboard')->name('dashboard');
 
 
 
@@ -90,5 +93,7 @@ Route::get('/matakuliah/edit/{id}','App\Http\Controllers\MatakuliahController@ed
 Route::patch('/matakuliah/{id}', 'App\Http\Controllers\MatakuliahController@update')->name('matakuliah.update');
 Route::get('/matakuliah/destroy/{id}','App\Http\Controllers\MatakuliahController@destroy')->name('matakuliah.destroy');
 
+//rekapabsensi
+Route::get('/rekapabsensi','App\Http\Controllers\AbsensiController@rekapabsensi')->name('rekapabsensi.index');
+Route::get('/rekapabsensi/pdf', 'App\Http\Controllers\AbsensiController@generatePDF')->name('rekapabsensi.pdf');
 
-// Route::get('dashboard',HomeController::class,'dashboard');
