@@ -14,9 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard');
-});
+// Route::get('/', function () {
+//     return view('dashboard');
+// });
+
+
+Route::get('/', 'App\Http\Controllers\HomeController@dashboard')->name('dashboard');
 
 
 
@@ -97,9 +100,8 @@ Route::get('/matakuliah/destroy/{id}','App\Http\Controllers\MatakuliahController
 Route::get('/', function () {
     return view('dashboard');
 });
-Route::get('/dashboard', 'App\Http\Controllers\HomeController@dashboard')->name('dashboard');
 
-// });
-
-
+//rekapabsensi
+Route::get('/rekapabsensi','App\Http\Controllers\AbsensiController@rekapabsensi')->name('rekapabsensi.index');
+Route::get('/rekapabsensi/pdf', 'App\Http\Controllers\AbsensiController@generatePDF')->name('rekapabsensi.pdf');
 

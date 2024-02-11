@@ -30,10 +30,7 @@
 
               <div class="info-box-content">
                 <span class="info-box-text">Data Dosen</span>
-                <span class="info-box-number">
-                  10
-                  <small>%</small>
-                </span>
+                <span class="info-box-number">{{ $jml_dosen }}</span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -46,7 +43,8 @@
 
               <div class="info-box-content">
                 <span class="info-box-text">Data Mahasiswa</span>
-                <span class="info-box-number">41,410</span>
+                <span class="info-box-number">{{ $jml_mhs }}</span>
+                
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -63,7 +61,7 @@
 
               <div class="info-box-content">
                 <span class="info-box-text">Data Prodi</span>
-                <span class="info-box-number">760</span>
+                <span class="info-box-number">{{ $jml_prodi }}</span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -76,7 +74,7 @@
 
               <div class="info-box-content">
                 <span class="info-box-text">Data Kelas</span>
-                <span class="info-box-number">2,000</span>
+                <span class="info-box-number">{{ $jml_kelas }}</span>
               </div>
               <!-- /.info-box-content -->
             </div>

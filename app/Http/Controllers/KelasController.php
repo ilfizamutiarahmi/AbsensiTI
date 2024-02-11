@@ -25,7 +25,9 @@ class KelasController extends Controller
     public function index()
     {
         //menampilkan semua data dari model kelas
-        $kelas = Kelas::all();
+        $kelas = Kelas::select('kelas.id','nama_kelas','nama_prodi','nama_pa')
+                                ->join('prodi','kelas.id_prodi','=','prodi.id')
+                                ->get();
         $prodi = ProdiModel::all();
         return view('kelas.index',compact('kelas','prodi'));
     }

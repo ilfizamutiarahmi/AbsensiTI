@@ -10,6 +10,8 @@ use App\Models\Mahasiswa;
 use App\Models\Absensi;
 use App\Models\Kelas;
 use App\Models\DetailAbsensi;
+use Dompdf\Dompdf;
+use Dompdf\Options;
 
 class AbsensiController extends Controller
 {
@@ -17,7 +19,7 @@ class AbsensiController extends Controller
     {
         $now = Carbon::now();
         $formattedDate = $now->format('Y-m-d');
-        $absen = DetailAbsensi::select('id_absensi','id_jadwal','id_mhs','nama_mhs','nim','status','keterangan')
+        $absen = DetailAbsensi::select('id_absensi','id_jadwal','detail_absensi.id_mhs','nama_mhs','nim','detail_absensi.status','detail_absensi.keterangan')
                                 ->join('absensi','detail_absensi.id_absensi','=','absensi.id')
                                 ->join('jadwal','absensi.id_jadwal','=','jadwal.id')
                                 ->join('mahasiswa','detail_absensi.id_mhs','=','mahasiswa.id')
@@ -50,6 +52,7 @@ class AbsensiController extends Controller
     public function store(Request $request)
     {
             $request->validate([
+                // 'id_mhs' => 'required',
                 'keterangan' => 'nullable|string|max:255',
                 
             ]);
@@ -68,11 +71,81 @@ class AbsensiController extends Controller
                 ]);
             }
 
-            return redirect('/absensi')-> with('status', 'Daftar hadir berhasil ditambahkan berhasil ditambahkan!');
+            return redirect('/absensi')-> with('status', 'Daftar hadir berhasil ditambahkan!');
     }
 
-    // public function daftar_hadir()
-    // {
-    //     $absensi = Absensi::all()->where('')
-    // }
+    public function rekapabsensi(Request $request){
+        $rekapabsensi = DetailAbsensi::select('id_absensi','id_jadwal','detail_absensi.id_mhs','nama_mhs','nim','detail_absensi.status','detail_absensi.keterangan')
+                                ->join('absensi','detail_absensi.id_absensi','=','absensi.id')
+                                ->join('jadwal','absensi.id_jadwal','=','jadwal.id')
+                                ->join('kelas','jadwal.id_kelas','=','kelas.id')
+                                ->join('mahasiswa','detail_absensi.id_mhs','=','mahasiswa.id')
+                                ->get();
+                                
+        $jadwal = Jadwal::select('jadwal.id','id_tahunajar','jam_mulai','jam_akhir','nama_matkul','jadwal.id_kelas','nama_kelas')
+                                ->join('kelas','jadwal.id_kelas','=','kelas.id')
+                                ->join('matakuliah','jadwal.id_matkul','=','matakuliah.id')
+                                ->join('tahun_ajar','jadwal.id_tahunajar','=','tahun_ajar.id')
+                                ->get();
+
+        return view('rekapabsensi.index')->with('rekapabsensi',$rekapabsensi)
+                                        ->with('jadwal',$jadwal);
+    }
+
+    public function generatePDF()
+    {
+
+        $jumlahJadwal = Jadwal::count();
+
+        $jadwal = Jadwal::select('jadwal.id', 'id_tahunajar', 'jam_mulai', 'jam_akhir', 'nama_matkul', 'jadwal.id_kelas', 'nama_kelas')
+            ->join('kelas', 'jadwal.id_kelas', '=', 'kelas.id')
+            ->join('matakuliah', 'jadwal.id_matkul', '=', 'matakuliah.id')
+            ->join('tahun_ajar', 'jadwal.id_tahunajar', '=', 'tahun_ajar.id')
+            ->get();
+
+        $count = Absensi::select('absensi.id', 'absensi.id_jadwal', 'detail_absensi.id_mhs', 'nama_mhs', 'nim', 'status', 'keterangan')
+        ->join('jadwal', 'absensi.id_jadwal', '=', 'jadwal.id')
+        ->join('detail_absensi', 'absensi.id', '=', 'detail_absensi.id_absensi')
+        ->join('mahasiswa', 'detail_absensi.id_mhs', '=', 'mahasiswa.id')
+        ->join('kelas', 'jadwal.id_kelas', '=', 'kelas.id')
+        ->whereIn('absensi.id_jadwal', function($query) {
+            $query->select('id')->from('jadwal');
+        })
+        ->get();
+
+        $count->transform(function ($item) {
+            $item->status = json_decode($item->status, true);
+            return $item;
+        });
+
+        $absensiArray = $count->map(function ($item) {
+            return $item->toArray();
+        });
+
+        //  dd($count);
+        // foreach ($count as $item) {
+        //     echo "Status: " . $item->status . "<br>";
+        // }
+
+        $rekapabsensi = DetailAbsensi::select('id_absensi', 'id_jadwal', 'detail_absensi.id_mhs', 'nama_mhs', 'nim', 'status', 'keterangan')
+            ->join('absensi', 'detail_absensi.id_absensi', '=', 'absensi.id')
+            ->join('jadwal', 'absensi.id_jadwal', '=', 'jadwal.id')
+            ->join('kelas', 'jadwal.id_kelas', '=', 'kelas.id')
+            ->join('mahasiswa', 'detail_absensi.id_mhs', '=', 'mahasiswa.id')
+            ->get();
+
+        $pdfContent = view('rekapabsensi.pdf')->with('rekapabsensi', $rekapabsensi)
+                                            ->with('count', $count)
+                                            ->with('jadwal', $jadwal)
+                                            ->render();
+        $pdf = new Dompdf();
+        $pdf->loadHtml($pdfContent);
+
+        $pdf->setPaper('A4', 'landscape');
+        $pdf->render();
+
+        $pdfFileName = 'rekapitulasiabsensi' . date('Ymd_His') . '.pdf';
+        return $pdf->stream($pdfFileName);
+    }
+    
 }

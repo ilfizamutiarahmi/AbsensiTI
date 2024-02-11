@@ -31,7 +31,7 @@
                             <td>{{$no++}}</td>
                             <td>{{$kls->nama_kelas}}</td>
                             <td>{{$kls->nama_pa}}</td>
-                            <td>{{$kls->id_prodi}}</td>
+                            <td>{{$kls->nama_prodi}}</td>
                             <td style="text-align: center;"><a href="/kelas/edit/{{$kls->id}}" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></a>
                             <a href="/kelas/destroy/{{$kls->id}}" class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i></a></td>
                         </tr>
