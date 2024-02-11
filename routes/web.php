@@ -14,22 +14,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard');
-});
+// Route::get('/', function () {
+//     return view('dashboard');
+// });
 
 
 
 // Auth::routes();
-
+Route::middleware(['guest'])->group(function(){
 //Route Login
 Route::get('/login', 'App\Http\Controllers\LoginController@index')->name('login.index');
 Route::post('/login-proses', 'App\Http\Controllers\LoginController@login_proses')->name('login-proses');
 Route::get('/logout', 'App\Http\Controllers\LoginController@logout')->name('logout');
 Route::get('/register', 'App\Http\Controllers\LoginController@register')->name('register');
 Route::post('/register-proses', 'App\Http\Controllers\LoginController@register_proses')->name('register-proses');
-Route::get('/dashboard', 'App\Http\Controllers\LoginController@dashboard')->name('dashboard');
-Route::get('/logout', 'App\Http\Controllers\LoginController@logout')->name('logout');
+Route::get('/dashboard', 'App\Http\Controllers\HomeController@dashboard')->name('dashboard');
+});
 
  //middleware
  Route::middleware(['auth'])->group(function(){
@@ -84,11 +84,12 @@ Route::patch('/matakuliah/{id}', 'App\Http\Controllers\MatakuliahController@upda
 Route::get('/matakuliah/destroy/{id}','App\Http\Controllers\MatakuliahController@destroy')->name('matakuliah.destroy');
 
 //dashboard
-// Route::get('/', function () {
-//     return view('dashboard');
-// });
+ Route::get('/', function () {
+     return view('dashboard');
+ });
 
 Route::get('/dashboard', 'App\Http\Controllers\HomeController@dashboard')->name('dashboard');
+Route::get('/logout', 'App\Http\Controllers\LoginController@logout')->name('logout');
 
  });
 

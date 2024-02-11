@@ -69,4 +69,8 @@ class DosenController extends Controller
         return redirect()->route('dosen.index')
             ->with('success', 'Data berhasil dihapus!');
     }
+
+    public function dosen(){
+        return view('dashboard');
+    }
 }
