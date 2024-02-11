@@ -65,7 +65,7 @@
 @enderror
 
 <div class="input-group mb-3">
-    <input type="hidden" name="role" class="form-control" placeholder="role" value="dosen">
+    <input type="hidden" name="role" class="form-control" placeholder="role" value="admin">
 </div>
 
 <div class="col-15">

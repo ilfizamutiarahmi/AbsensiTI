@@ -15,7 +15,7 @@ class HomeController extends Controller
     {
         // Your controller logic here
     }
-    
+
     public function dashboard(){
         $jml_mhs = Mahasiswa::all()->count();
         $jml_dosen = Dosen::all()->count();

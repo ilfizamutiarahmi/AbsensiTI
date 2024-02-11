@@ -11,7 +11,7 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form method="POST" action="{{url("/dosen/{$dosen->id}")}}">
+              <form method="POST" action="{{url("dosen/{$dosen->id}")}}">
                 @method('PATCH')
                 @csrf
                 <div class="card-body">
@@ -34,6 +34,9 @@
                   <div class="form-group">
                     <label for="no_hp">No HP</label>
                     <input type="text" class="form-control" name="no_hp" id="no_hp" value="{{ $dosen->no_hp }}">
+                  </div>
+                  <div class="form-group">
+                    <input type="hidden" class="form-control" name="role" id="role" value="dosen">
                   </div>
                 <!-- /.card-body -->
 
