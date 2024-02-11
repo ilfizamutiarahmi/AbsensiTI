@@ -53,6 +53,11 @@
                             </tr>
                             </thead>
                             <tbody>
+                              @if($mhs->isEmpty())
+                                  <tr>
+                                    <td colspan="5" align="center">Tidak ada data.</td>
+                                  </tr>
+                              @else
                             @php
                                 $no = 1;
                             @endphp
@@ -72,15 +77,16 @@
                                 </td>
                                 <td>
                                     <input type="hidden" class="form-control" name="id_mhs[]" id="id_mhs" value="{{ $ab->id }}" >
-                                    <input type="text" class="form-control" name="keterangan" id="keterangan" value="hadir">
+                                    <input type="text" class="form-control" name="keterangan[]" id="keterangan">
                                     <input type="hidden" class="form-control" name="hari_ini" id="hari_ini" value="{{ $hari_ini }}">
                                 </td>
                             </tr>
                             @endforeach
+                            @endif
                           </tbody>
                         </table>
                         <div class="footer mt-3" align="right">
-                          <button type="submit" class="btn btn-primary" id="btn-submit">Simpan</button>
+                          <button type="submit" class="btn btn-success" id="btn-submit">Simpan</button>
                         </div>
                       </form>
                         </div>

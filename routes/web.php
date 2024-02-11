@@ -23,11 +23,19 @@ use Illuminate\Support\Facades\Route;
 // Auth::routes();
 Route::middleware(['guest'])->group(function(){
 //Route Login
+
+//dashboard
 Route::get('/login', 'App\Http\Controllers\LoginController@index')->name('login.index');
 Route::post('/login-proses', 'App\Http\Controllers\LoginController@login_proses')->name('login-proses');
 Route::get('/logout', 'App\Http\Controllers\LoginController@logout')->name('logout');
 Route::get('/register', 'App\Http\Controllers\LoginController@register')->name('register');
 Route::post('/register-proses', 'App\Http\Controllers\LoginController@register_proses')->name('register-proses');
+Route::get('/dashboard', 'App\Http\Controllers\LoginController@dashboard')->name('dashboard');
+Route::get('/logout', 'App\Http\Controllers\LoginController@logout')->name('logout');
+
+Route::get('/', function () {
+    return view('dashboard');
+});
 Route::get('/dashboard', 'App\Http\Controllers\HomeController@dashboard')->name('dashboard');
 });
 
@@ -75,6 +83,9 @@ Route::get('/dashboard', 'App\Http\Controllers\HomeController@dashboard')->name(
     Route::get('/jadwal','App\Http\Controllers\JadwalController@index')->name('jadwal.index');
     Route::get('/jadwal/create','App\Http\Controllers\JadwalController@create')->name('jadwal.create');
     Route::post('/jadwal','App\Http\Controllers\JadwalController@store')->name('jadwal.store');
+    Route::get('/jadwal/edit/{id}','App\Http\Controllers\JadwalController@edit')->name('jadwal.edit');
+    Route::patch('/jadwal/{id}', 'App\Http\Controllers\JadwalController@update')->name('jadwal.update');
+    Route::get('/jadwal/destroy/{id}','App\Http\Controllers\JadwalController@destroy')->name('jadwal.destroy');
 
 
     //prodi
