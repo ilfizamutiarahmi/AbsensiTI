@@ -36,7 +36,7 @@
                                     <div class="col-6">
                                       <div class="form-group">
                                             <label for=""></label><br>
-                                          <button type="submit" class="btn btn-primary mt-2">Submit</button>
+                                          <button type="submit" class="btn btn-primary mt-2" id="search">Search</button>
                                       </div>
                                   </div>
                               </form>
@@ -86,7 +86,7 @@
                           </tbody>
                         </table>
                         <div class="footer mt-3" align="right">
-                          <button type="submit" class="btn btn-success" id="btn-submit">Simpan</button>
+                          <button type="submit" class="btn btn-success" id="btn-submit" >Simpan</button>
                         </div>
                       </form>
                         </div>
@@ -102,9 +102,9 @@
     </div>
 @endsection
 @push('content_scripts')
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-      $('#btn-submit').on('click',function(){
-        var html = `<option value="">`
-      })
+    $(document).ready(function() {
+    });
 </script>
 @endpush
