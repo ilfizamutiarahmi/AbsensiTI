@@ -34,7 +34,7 @@ class AbsensiController extends Controller
 
     public function create(Request $request){
         $filterkelas = $request->id_kelas;
-        $now = Carbon::now()->setTimezone('Asia/Jakarta')->format('H:i:s');
+        $now = Carbon::now()->setTimezone('Asia/Jakarta')->toDateTimeString();
         $mhs = Mahasiswa::select('mahasiswa.id','nim','nama_mhs','mahasiswa.id_kelas','jenis_kelamin','no_telp')
                                 ->join('kelas','mahasiswa.id_kelas','=','kelas.id')
                                 ->where('mahasiswa.id_kelas','=', $filterkelas)
