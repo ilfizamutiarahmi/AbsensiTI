@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 use App\Models\Mahasiswa;
 use App\Models\Kelas;
 
@@ -14,6 +15,7 @@ class MahasiswaController extends Controller
     public function index(){
         $mahasiswa = Mahasiswa::all();
         return view('mahasiswa.index')->with('mahasiswa',$mahasiswa);
+    
     }
 
     public function create(){

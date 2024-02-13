@@ -51,7 +51,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('kelas.create')}}" class="nav-link {{ (Route::currentRouteName() == 'kelas.create') ? 'active' : ''}}">
+                <a href="{{ route('kelas.index')}}" class="nav-link {{ (Route::currentRouteName() == 'kelas.create') ? 'active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Kelas</p>
                 </a>
@@ -72,6 +72,12 @@
               <a href="{{route('jadwal.index')}}" class="nav-link {{ (Route::currentRouteName() == 'jadwal.index') ? 'active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Jadwal</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('rekapabsensi.index')}}" class="nav-link {{ (Route::currentRouteName() == 'rekapabsensi.index') ? 'active' : ''}}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Rekapitulasi Absensi</p>
                 </a>
               </li>
               <li class="nav-item">
